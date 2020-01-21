@@ -1,0 +1,13 @@
+{
+  "main": "./integration.js",
+  "name": "ripestat",
+  "version": "3.0.0-beta",
+  "homepage": "https://github.com/polarityio/ripestat",
+  "issues": "https://github.com/polarityio/ripestat/issues",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "request": "^2.88",
+    "async": "^2.6"
+  }
+}
