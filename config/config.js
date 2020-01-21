@@ -29,6 +29,7 @@ module.exports = {
       regex: /ASN?\d{1,}/
     }
   ],
+  onDemandOnly: true,
   /**
    * Provide custom component logic and template for rendering the integration details block.  If you do not
    * provide a custom template and/or component then the integration will display data as a table of key value
