@@ -1,0 +1,94 @@
+<div class="p-link">
+  <a href="https://stat.ripe.net/{{block.entity.value}}#tabId=at-a-glance">View in RIPE Stat Dashboard {{fa-icon "external-link-square"
+                                                                                       class="external-link-icon"}}</a>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a {{action "changeTab" "summary"}} class="nav-link {{if (or (eq activeTab "summary")(not activeTab)) "active"}}"
+                                        href="#">Summary</a>
+  </li>
+  <li class="nav-item">
+    <a {{action "changeTab" "prefixes"}} class="nav-link {{if (eq activeTab "prefixes") "active"}}"
+                                         href="#">Prefixes {{#unless block.isLoadingDetails}}({{details.prefix.data.prefixes.length}}){{/unless}}</a>
+  </li>
+</ul>
+
+{{#unless block.isLoadingDetails}}
+  {{#if (or (eq activeTab "summary")(not activeTab))}}
+
+    <h1 class="p-title">
+      {{fa-icon "globe" fixedWidth=true}}  ASN Summary
+    </h1>
+
+    {{#if details.data.resource}}
+      <div>
+        <span class="p-key">Resource: </span>
+        <span class="p-value">{{details.data.resource}}</span>
+      </div>
+    {{/if}}
+
+    {{#if details.data.holder_info}}
+      <div>
+        <span class="p-key">Holder Name: </span>
+        <span class="p-value">{{details.data.holder_info.name}}</span>
+      </div>
+    {{/if}}
+
+    {{#if details.data.global_network_info}}
+      <div>
+        <span class="p-key">Source: </span>
+        <span class="p-value">{{details.data.global_network_info.source}}</span>
+      </div>
+      <div>
+        <span class="p-key">Name: </span>
+        <span class="p-value">{{details.data.global_network_info.name}}</span>
+      </div>
+    {{/if}}
+
+    {{#if details.data.anti_abuse_contacts}}
+      {{#each details.data.anti_abuse_contacts.abuse_c as |contact|}}
+        <div>
+          <span class="p-key">Abuse Contact: </span>
+          <span class="p-value">{{contact}}</span>
+        </div>
+      {{/each}}
+      {{#each details.data.anti_abuse_contacts.emails as |email|}}
+        <div>
+          <span class="p-key">Abuse Contact Email: </span>
+          <span class="p-value">{{email}}</span>
+        </div>
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+  {{#if (eq activeTab "prefixes")}}
+    {{#if details.prefix}}
+      <h1 class="p-title">
+        {{fa-icon "chart-network" fixedWidth=true}}  Prefix Summary
+      </h1>
+      {{#if (eq details.prefix.data.prefixes.length 0)}}
+        <span>No Prefixes</span>
+      {{/if}}
+      {{#each details.prefix.data.prefixes as |result index|}}
+        {{#if (gt index 0)}}
+          <hr>
+        {{/if}}
+        <div>
+          <span class="p-key">Prefix: </span>
+          <span class="p-value">{{result.prefix}}</span>
+        </div>
+        {{#each result.timelines as |time index|}}
+          <div>
+            <span class="p-key">Start Time: </span>
+            <span class="p-value">{{time.starttime}}</span>
+          </div>
+          <div>
+            <span class="p-key">End Time: </span>
+            <span class="p-value">{{time.endtime}}</span>
+          </div>
+        {{/each}}
+      {{/each}}
+    {{/if}}
+  {{/if}}
+
+{{/unless}}
