@@ -8,10 +8,9 @@
       "regex": "ASN?\\d{1,}"
     }
   ],
+  "defaultColor": "light-gray",
   "onDemandOnly": true,
-  "styles": [
-    "./styles/rs.less"
-  ],
+  "styles": ["./styles/rs.less"],
   "block": {
     "component": {
       "file": "./components/block.js"

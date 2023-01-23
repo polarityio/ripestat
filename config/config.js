@@ -29,6 +29,7 @@ module.exports = {
       regex: /ASN?\d{1,}/
     }
   ],
+  defaultColor: 'light-gray',
   onDemandOnly: true,
   /**
    * Provide custom component logic and template for rendering the integration details block.  If you do not
