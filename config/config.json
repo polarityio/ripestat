@@ -1,0 +1,42 @@
+{
+  "name": "RIPEstat ASN Lookup",
+  "acronym": "RSTAT",
+  "description": "RIPEstat Provides ASN information including holder name and network prefixes",
+  "customTypes": [
+    {
+      "key": "asn",
+      "regex": "ASN?\\d{1,}"
+    }
+  ],
+  "defaultColor": "light-gray",
+  "onDemandOnly": true,
+  "styles": ["./styles/rs.less"],
+  "block": {
+    "component": {
+      "file": "./components/block.js"
+    },
+    "template": {
+      "file": "./templates/block.hbs"
+    }
+  },
+  "summary": {
+    "component": {
+      "file": "./components/summary.js"
+    },
+    "template": {
+      "file": "./templates/summary.hbs"
+    }
+  },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": "",
+    "proxy": "",
+    "rejectUnauthorized": true
+  },
+  "logging": {
+    "level": "info"
+  },
+  "entityTypes": []
+}
