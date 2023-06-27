@@ -1,6 +1,6 @@
 {
   "name": "ripestat",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "main": "./integration.js",
   "homepage": "https://github.com/polarityio/ripestat",
   "issues": "https://github.com/polarityio/ripestat/issues",
